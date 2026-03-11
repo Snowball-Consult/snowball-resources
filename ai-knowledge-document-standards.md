@@ -496,7 +496,32 @@ After the header block:
 2. **Main Content Sections** - Organized logically for the document type
 3. **Quick Reference** - Tables, checklists, or summaries for fast lookup
 4. **Cross-References** - Explicit links to related documents
-5. **Changelog** (optional) - For frequently updated documents
+5. **Changelog** (optional but recommended) - Track document evolution over time
+
+### Changelog Convention
+
+Documents that evolve over time should include a changelog section at the end. This serves two purposes: it helps humans understand how the document has developed, and it signals to the AI that certain sections may have been recently revised (and should be treated as current thinking rather than stale content).
+
+**Format:**
+
+```markdown
+---
+
+## Changelog
+
+| Date | Change |
+|------|--------|
+| 2026-03-11 | Most recent change described here |
+| 2026-02-15 | Earlier change described here |
+| 2026-01-08 | Initial version |
+```
+
+**Rules:**
+- New entries go at the top (most recent first)
+- Use ISO dates (YYYY-MM-DD) for unambiguous sorting
+- Keep descriptions concise - one line per change, focused on what changed and why
+- If a document doesn't have a changelog but receives significant edits, add one
+- The changelog is a lightweight audit trail, not a substitute for version control - no need to log every typo fix
 
 ### Section Header Guidelines
 
@@ -684,3 +709,12 @@ Before finalizing any knowledge document:
 
 - Filename Generation: Keyword Extraction and Retrieval Optimization - Foundational filename principles this document applies
 - Call transcript and meeting note naming conventions - Applies filename principles to call transcripts
+
+---
+
+## Changelog
+
+| Date | Change |
+|------|--------|
+| 2026-03-11 | Added Changelog Convention section with format rules and guidance; added this changelog |
+| 2026-03-11 | Initial public version - combined document standards and filename generation into a single self-contained resource |
