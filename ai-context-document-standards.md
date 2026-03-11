@@ -1,4 +1,4 @@
-# AI Knowledge Document Standards: Structure, Naming, and Retrieval Optimization
+# AI Context Document Standards: Structure, Naming, and Retrieval Optimization
 
 > **About this resource:** This is shared by [Snowball Consult](https://snowball-consult.com) as a methodology demo.
 > It's meant as inspiration - not as a plug-and-play solution. Some referenced dependencies may not be included.
@@ -10,8 +10,8 @@
 
 | Field | Value |
 |-------|-------|
-| **Purpose** | Complete framework for structuring AI-consumable knowledge documents - covers taxonomy, maturity, naming conventions, retrieval optimization, and cross-referencing |
-| **Trigger** | Creating new knowledge documents, structuring an AI-friendly knowledge base, setting up Claude Code or Claude Projects, optimizing file discoverability |
+| **Purpose** | Complete framework for structuring AI context documents - covers taxonomy, maturity, naming conventions, retrieval optimization, and cross-referencing |
+| **Trigger** | Creating new context documents, structuring an AI-friendly knowledge base, setting up Claude Code or Claude Projects, optimizing file discoverability |
 | **Scope** | Document architecture, taxonomy, maturity levels, content structure, filename generation, keyword extraction, retrieval optimization, cross-referencing |
 | **Not In Scope** | Specific technical content (CRMs, enrichment tools, etc.), prompt engineering for conversations, fine-tuning, platform-specific RAG mechanics |
 | **Dependencies** | [Filename Generation: Keyword Extraction and Retrieval Optimization](filename-generation-keyword-extraction-retrieval-optimization.md) - Foundational filename principles this document builds on (also published in this repo) |
@@ -37,7 +37,7 @@ This document captures the full system. It's designed so you can adapt it to you
 
 ## Applicability
 
-This document defines a **general framework** for structuring knowledge documents optimized for AI retrieval and execution. While examples are drawn from GTM and revenue operations, the principles apply universally to any domain:
+This document defines a **general framework** for structuring context documents optimized for AI retrieval and execution. While examples are drawn from GTM and revenue operations, the principles apply universally to any domain:
 
 - **The nine categories are examples** - Adapt or replace them based on your domain's needs (e.g., engineering might use ARCHITECTURE, REFERENCE, RUNBOOK; research might use LITERATURE, HYPOTHESIS, PROTOCOL)
 - **The structural patterns are universal** - Metadata tables, front-loading, negative scope, and cross-references work across all knowledge types
@@ -49,7 +49,7 @@ The goal is retrieval optimization and execution clarity, regardless of subject 
 
 ## Core Principle
 
-Every knowledge document must optimize for two sequential phases:
+Every context document must optimize for two sequential phases:
 
 1. **Discovery** - Can the AI find the right document when relevant?
 2. **Execution** - Once found, can the AI correctly interpret and apply it?
@@ -679,7 +679,7 @@ These documents apply to most tasks:
 
 ## Document Checklist
 
-Before finalizing any knowledge document:
+Before finalizing any context document:
 
 ### Filename Checklist
 
@@ -716,5 +716,6 @@ Before finalizing any knowledge document:
 
 | Date | Change |
 |------|--------|
+| 2026-03-11 | Renamed from "AI Knowledge Document Standards" to "AI Context Document Standards" for public clarity |
 | 2026-03-11 | Added Changelog Convention section with format rules and guidance; added this changelog |
 | 2026-03-11 | Initial public version - combined document standards and filename generation into a single self-contained resource |
