@@ -19,3 +19,9 @@ Questions or want to chat? Reach out at andreas@snowball-consult.com
 - **[LinkedIn Profile Verification Agent - PE/Capital Markets](linkedin-profile-verification-pe-capital-markets.md)** - Production AI agent prompt (system + user + JSON output schema) for verifying enriched LinkedIn profiles against CRM contacts. Primed for PE/capital markets with 13 test cases covering domain aliases, career changes, name variants, and data provider errors.
 
 - **[CRM Company Record Selection Agent](crm-company-record-selection-agent-domain-lookup-parent-child-disambiguation.md)** - AI agent spec for selecting the correct CRM company record when a domain lookup returns multiple results (parent companies, subsidiaries, business units). Three-tier selection logic (name match, title context, activity scoring), dual-lookup architecture, 6 test cases with real PE/financial services data patterns.
+
+- **[Meeting Briefing Demo](meeting-briefing-demo.html)** - A real meeting briefing that aligned four stakeholders across three organizations and led to a pilot decision in 30 minutes. Sanitized from an actual client engagement. Shows the output of the briefing page system below.
+
+- **[Client Briefing Pages: HTML Synthesis Pipeline](client-briefing-pages-html-synthesis-pipeline.md)** - The procedure document that instructs how meeting briefings and stakeholder updates are built - from transcript ingestion to polished HTML. The system behind the meeting briefing demo above.
+
+- **[Design Language: Brand Identity Visual System](design-language-brand-identity-visual-system.md)** - The foundational design system governing all visual output - color palette (dark + light mode), typography (Inter + JetBrains Mono), spacing, layout principles, CSS custom properties. The brand layer that makes every deliverable look consistent.
