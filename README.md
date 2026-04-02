@@ -25,3 +25,5 @@ Questions or want to chat? Reach out at andreas@snowball-consult.com
 - **[Client Briefing Pages: HTML Synthesis Pipeline](client-briefing-pages-html-synthesis-pipeline.md)** - The procedure document that instructs how meeting briefings and stakeholder updates are built - from transcript ingestion to polished HTML. The system behind the meeting briefing demo above.
 
 - **[Design Language: Brand Identity Visual System](design-language-brand-identity-visual-system.md)** - The foundational design system governing all visual output - color palette (dark + light mode), typography (Inter + JetBrains Mono), spacing, layout principles, CSS custom properties. The brand layer that makes every deliverable look consistent.
+
+- **[Ideal Buyer Persona Definition - PE/Capital Markets](ideal-buyer-persona-definition-pe-capital-markets.md)** - Complete buyer persona definition for a B2B SaaS company selling into Private Equity. Includes a "read aloud" narrative, primary/secondary/emerging personas, signal ranking, buying process roles, and skip rules. Demonstrates the structure and depth of a real persona document built from 7+ stakeholder discovery calls.
