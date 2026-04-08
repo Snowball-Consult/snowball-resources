@@ -6,6 +6,12 @@ These are shared as demos and inspiration. They come from a working consulting p
 
 Questions or want to chat? Reach out at andreas@snowball-consult.com
 
+## Skills
+
+Plug-and-play skills for Claude Code. Copy to `~/.claude/skills/` and use immediately.
+
+- **[ASCII Block Art](skills/ascii/)** - Render any word or phrase as large, bold ASCII block art, auto-fitted to terminal width. Supports A-Z, 0-9, punctuation, emoji, word-wrapping. Install and use with `/ascii hello world`.
+
 ## Contents
 
 - **[Deep Research: GTM Assessment Prompt](deep-research-gtm-assessment.md)** - Market-first prompt template for assessing prospect companies before discovery calls. Covers category dynamics, competitive landscape, customer world data characteristics, and engagement fit filtering.
