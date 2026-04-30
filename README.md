@@ -22,7 +22,19 @@ Plug-and-play skills for Claude Code. Copy to `~/.claude/skills/` and use immedi
 
 - **[Filename Generation: Keyword Extraction and Retrieval Optimization](filename-generation-keyword-extraction-retrieval-optimization.md)** - Methodology for converting content into retrieval-optimized filenames through keyword extraction and query anticipation. Applicable to any file type in RAG-based systems.
 
+- **[Claygent JSON Prompting Guide](claygent-json-prompting-guide.md)** - Canonical structure for building Clay AI agent prompts with JSON output schemas. Three-part format (main prompt, separated schema, variables block), web-access vs local-data prompt splitting, Clay-specific schema constraints, and the most common failure modes. The reference used to build every Claygent worth shipping.
+
 - **[LinkedIn Profile Verification Agent - PE/Capital Markets](linkedin-profile-verification-pe-capital-markets.md)** - Production AI agent prompt (system + user + JSON output schema) for verifying enriched LinkedIn profiles against CRM contacts. Primed for PE/capital markets with 13 test cases covering domain aliases, career changes, name variants, and data provider errors.
+
+### Private Equity Knowledge Set
+
+These three documents form a coherent PE knowledge stack: market structure, buyer persona, and contact targeting. They pair with the LinkedIn verification agent above and were built from a working PE engagement.
+
+- **[Private Equity Fund Sizes and Structures Reference](private-equity-fund-sizes-structures-terminology.md)** - Comprehensive reference for identifying, categorizing, and extracting PE fund size information from unstructured sources. Covers flagship fund taxonomy, fund size terminology (committed capital vs AUM vs NAV), market segment thresholds, vintage year conventions, data sources, and disambiguation of non-PE vehicles (credit, real estate, infrastructure, VC, BDCs, SPACs).
+
+- **[PE Capital Markets Professional - Buyer Primer](pe-capital-markets-professional-buyer-primer.md)** - 11-dimension buyer persona for the ~2,500 PE capital markets VPs and MDs who structure debt across private equity portfolios. Maps daily reality, career arc, problem landscape, knowledge domains (LMEs, NAV lending, private credit), information ecosystem, relationship dynamics, technology stack, macro trends, professional identity, and unmet needs. Demonstrates the depth of a research-backed buyer persona for a niche professional audience.
+
+- **[PE Job Title Decomposition Taxonomy](pe-job-title-decomposition-taxonomy.md)** - PE-specific overlay for parsing job titles into Function and Seniority. Covers the canonical PE title hierarchy, geographic variation (US, UK, Germany, France, Nordics, Asia, Middle East), function classification codes, C-suite/partnership overlap, edge cases, and decision-tree classification rules. Built from 16K+ manually classified PE contacts plus wall-street research synthesis.
 
 - **[CRM Company Record Selection Agent](crm-company-record-selection-agent-domain-lookup-parent-child-disambiguation.md)** - AI agent spec for selecting the correct CRM company record when a domain lookup returns multiple results (parent companies, subsidiaries, business units). Three-tier selection logic (name match, title context, activity scoring), dual-lookup architecture, 6 test cases with real PE/financial services data patterns.
 
