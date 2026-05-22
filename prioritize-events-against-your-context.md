@@ -1,6 +1,22 @@
 # Prioritize Events Against Your Context
 
-> Demo recipe lifted from a working consulting practice. Built originally to triage NY Tech Week 2026 down from 250+ candidate events to a tight priority list. Drop into Claude Code and follow the conversation it starts.
+> **About this resource:** This is shared by [Snowball Consult](https://snowball-consult.com) as a methodology demo.
+> It's meant as inspiration - not as a plug-and-play solution. Some referenced dependencies may not be included.
+> Questions? Don't hesitate to reach out at andreas@snowball-consult.com
+
+---
+
+## Document Metadata
+
+| Field | Value |
+|-------|-------|
+| **Purpose** | A Claude Code recipe for triaging crowded event calendars into prioritized, opinionated, context-fit short lists. The whole bet is that the user's context profile drives the output; two people running this against the same event list will get different priorities, and that's the point. |
+| **Trigger** | Triaging conference agendas, city Tech Week calendars, accelerator demo days, mentorship cohort triage, podcast/newsletter backlogs - any "many candidates, limited time, context-driven" decision. |
+| **Scope** | Conversational profile elicitation, candidate event sourcing (paste/URL/file), tiered ranking (T1 Must / T2 Strong / Backup), output schema (12 columns), progressive-enhancement delivery (Google Sheet, CSV, or markdown table). |
+| **Keywords** | event prioritization, conference triage, Claude Code recipe, system prompt, Tech Week, ranking, context profile, drop-in markdown, progressive enhancement |
+| **Maturity** | Working |
+
+---
 
 When you (Claude) see this file in a session, whether pasted into chat, loaded from disk, or pointed at directly, treat it as your instructions for the session. The human reading this is the user; follow the steps below to run the workflow for them.
 
