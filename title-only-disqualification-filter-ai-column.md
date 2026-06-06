@@ -18,8 +18,7 @@
 | **Not In Scope** | Bio-aware / full-profile classification (a heavier check that reads the whole enriched profile - not included), contact *selection* or ranking (this filter never selects), the upstream people-search recall filter, outbound messaging. |
 | **Dependencies** | An ideal-buyer persona definition for the segment (not included); a per-record SME verdict log used as labeled training data (not included); a heavier profile-aware AI classifier this runs *in front of* (not included); a JSON prompting standard for AI agent columns (see the [Claygent JSON Prompting Guide](claygent-json-prompting-guide.md) in this repo). |
 | **Keywords** | title-only filter, disqualification, exclusion filter, quality floor, AI column, keep/exclude, obvious non-fit, bias toward keep, asymmetric threshold, few-shot, enrichment QA |
-| **Maturity** | Draft (first-pass, pre-live-validation) |
-| **Last Reviewed** | 2026-06-05 |
+| **Last Reviewed** | 2026-06-06 |
 
 ---
 
