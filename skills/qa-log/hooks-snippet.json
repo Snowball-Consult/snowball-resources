@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/qa-log/qa_log.py\" nudge",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  }
+}
