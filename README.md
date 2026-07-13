@@ -16,6 +16,8 @@ Plug-and-play skills for Claude Code. Copy to `~/.claude/skills/` and use immedi
 
 ## Contents
 
+- **[Don't Ask Me. Ask Claude Code - and Get It *Built* Instead of Explained](ask-claude-code-instead-of-me-get-it-built-not-explained.md)** - Start here if you're new to working with an AI coding agent. A small, real question ("how did you get bold text into that Slack message?") used to teach the move that matters: asking a person gets you a description of a solution, asking Claude Code gets you the solution, running. Walks the four escalating prompts from help-center answer to commissioned tool, the three approaches that failed on the way to the right one, the five habits underneath, and - as the punchline - the raw, rambling, dictated prompt that produced the document itself.
+
 - **[Deep Research: GTM Assessment Prompt](deep-research-gtm-assessment.md)** - Market-first prompt template for assessing prospect companies before discovery calls. Covers category dynamics, competitive landscape, customer world data characteristics, and engagement fit filtering.
 
 - **[Deep Research Prompt Engineering](deep-research-prompt-engineering.md)** - Research-backed framework for transforming casual questions into structured Deep Research prompts, with building blocks ranked by evidence strength, two output branches (reference doc vs. domain learning), and before/after examples.
