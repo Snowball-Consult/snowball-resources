@@ -116,6 +116,12 @@ That's the whole thesis. The jump from Attempt 3 to Attempt 4 is the jump from *
 
 These are here so you can **read** them - not so you can install them blindly. Read them the way you'd read someone's homework: to check whether you'd have done it the same way, and to notice how small the actual thing is once the thinking is done.
 
+### The no-code version
+
+You don't need any of what follows to get the effect once, by hand. The trick itself is just character substitution - swapping letters for their Unicode mathematical-bold-sans-serif equivalents - and plenty of free web tools already do that. Paste your text into [webutility.io's LinkedIn Text Formatter](https://webutility.io/linkedin-text-formatter), copy the bold output, paste it into Slack. No terminal, no script, no AI session required.
+
+The script and skill below exist for the repeatable case: when you're formatting the same shape of message (title plus bulleted labels) often enough that reaching for a website every time is more friction than automating it once.
+
 ### The script
 
 ```python
