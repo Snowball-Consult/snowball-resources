@@ -1,9 +1,5 @@
 # Filename Generation: Keyword Extraction and Retrieval Optimization
 
-> **About this resource:** This is shared by [Snowball Consult](https://snowball-consult.com) as a methodology demo.
-> It's meant as inspiration - not as a plug-and-play solution. Some referenced dependencies may not be included.
-> Questions? Don't hesitate to reach out at andreas@snowball-consult.com
-
 ---
 
 ## Document Metadata
@@ -12,18 +8,18 @@
 |-------|-------|
 | **Purpose** | Foundational methodology for converting any content into retrieval-optimized filenames through keyword extraction and query anticipation |
 | **Trigger** | Naming any file for AI retrieval systems, building filename generation tools, optimizing existing file libraries |
-| **Scope** | Filename architecture, character budgets, keyword extraction principles, query anticipation, anti-patterns - applicable to ALL file types |
+| **Scope** | Filename architecture, character budgets, keyword extraction principles, query anticipation, anti-patterns—applicable to ALL file types |
 | **Not In Scope** | Specific file type patterns (see dependent documents), document content structure, platform-specific RAG mechanics |
 | **Dependencies** | None (foundational document) |
 | **Keywords** | filename, file naming, keyword extraction, retrieval optimization, RAG, query anticipation, character budget, keyword density, searchability, discoverability |
 | **Maturity** | Stable |
-| **Last Reviewed** | 2026-02-01 |
+| **Last Reviewed** | 2026-11-24 |
 
 ---
 
 ## Core Principle
 
-**The filename is not a label - it's a searchable metadata record.**
+**The filename is not a label—it's a searchable metadata record.**
 
 Every word in a filename is a potential retrieval hook. In RAG-based systems (Claude Projects, vector databases, search indexes), filenames directly influence whether the AI finds your document. A poorly named file with perfect content may never surface.
 
@@ -35,8 +31,8 @@ Filename generation is the process of **extracting keywords from content and com
 
 Every file must optimize for two sequential phases:
 
-1. **Discovery** - Can the system find this file when it's relevant?
-2. **Execution** - Once found, can the content be correctly interpreted?
+1. **Discovery** — Can the system find this file when it's relevant?
+2. **Execution** — Once found, can the content be correctly interpreted?
 
 The filename controls discovery. Content controls execution. **Most files fail at discovery** because their filenames contain zero overlap with the search queries users generate.
 
@@ -44,7 +40,7 @@ The filename controls discovery. Content controls execution. **Most files fail a
 
 ## Query Anticipation
 
-The fundamental skill in filename generation is **query anticipation** - predicting what search terms will be used to find this content.
+The fundamental skill in filename generation is **query anticipation**—predicting what search terms will be used to find this content.
 
 Ask yourself:
 - What questions would someone ask that this file answers?
@@ -106,17 +102,17 @@ Think of filename generation as **allocating a character budget** across semanti
 
 ### High-Value Keywords (Always Include)
 
-- **Primary subject** - The main entity, tool, concept, or domain
-- **Type indicator** - What kind of content (discovery, demo, deep-dive, guide, spec)
-- **Key capabilities or concepts** - Main features, frameworks, methods covered
-- **Unique identifiers** - Names, dates, project codes that enable precise retrieval
+- **Primary subject** — The main entity, tool, concept, or domain
+- **Type indicator** — What kind of content (discovery, demo, deep-dive, guide, spec)
+- **Key capabilities or concepts** — Main features, frameworks, methods covered
+- **Unique identifiers** — Names, dates, project codes that enable precise retrieval
 
 ### Medium-Value Keywords (Include When Space Permits)
 
-- **Related tools or integrations** - Secondary systems mentioned
-- **Use cases** - What tasks or questions this addresses
-- **Industry or vertical** - If domain-specific
-- **Outcomes or status** - Results, decisions, next steps
+- **Related tools or integrations** — Secondary systems mentioned
+- **Use cases** — What tasks or questions this addresses
+- **Industry or vertical** — If domain-specific
+- **Outcomes or status** — Results, decisions, next steps
 
 ### Low-Value Keywords (Skip These)
 
@@ -217,8 +213,8 @@ Before finalizing any filename:
 
 This document provides foundational principles. For file-type-specific patterns, see:
 
-- [AI Context Document Standards](ai-context-document-standards.md) - Knowledge documents: document code first, then category, then keywords
-- Call transcript and meeting note naming (not included) - Date, company, participants, topics
+- `sbc-infra-4_STANDARD_ai-knowledge-document-standards.md` - Knowledge base documents (document code first, then category, then keywords; the current category list lives there)
+- `sbc-infra-6_STANDARD_claude-project-files-call-transcripts.md` - Call transcripts and meeting notes (date, company, participants, call-type patterns)
 
 Each dependent document applies these principles to its specific context with tailored keyword extraction frameworks and examples.
 
@@ -226,8 +222,8 @@ Each dependent document applies these principles to its specific context with ta
 
 ## Related Documents
 
-- [AI Context Document Standards](ai-context-document-standards.md) - Applies these principles to knowledge documents
-- [Anatomy of a Context System](context-system-indexing-retrieval-architecture.md) - Where the filename sits in the retrieval order
+- `sbc-infra-4_STANDARD_ai-knowledge-document-standards.md` - Applies these principles to knowledge base documents
+- `sbc-infra-6_STANDARD_claude-project-files-call-transcripts.md` - Applies these principles to call transcripts
 
 ---
 
@@ -235,6 +231,6 @@ Each dependent document applies these principles to its specific context with ta
 
 | Date | Change |
 |------|--------|
-| 2026-11-24 | Categories and references brought up to date; principles unchanged |
-| 2026-01-17 | Initial version - extracted foundational filename principles from ai-knowledge-document-standards and claude-project-files-retrieval-optimization |
+| 2026-11-24 | Replaced references to files and categories retired in the 2026-02-02 taxonomy restructure; principles unchanged |
+| 2026-01-17 | Initial version — extracted foundational filename principles from ai-knowledge-document-standards and claude-project-files-retrieval-optimization |
 
