@@ -18,6 +18,8 @@ Plug-and-play skills for Claude Code. Copy to `~/.claude/skills/` and use immedi
 
 ## Contents
 
+- **[Three Foundations of a Context OS](context-os-three-foundations.md)** - Start here if you want to build your own context system. How to grow it from questions to your agent, how to write documents it can find again, and how to keep what a session produced. Each part has a prompt to paste and links to the full documents.
+
 - **[Jev Choice Question: Company Segmentation Payload](jev-choice-question-company-segmentation-payload.md)** - The exact request body behind the "Jev in Clay" segmentation test: the company inputs (`state`, as placeholders), the question (`instructions`), and the five segment options with definitions, boundaries and examples (`criteria`).
 
 - **[Don't Ask Me. Ask Claude Code - and Get It *Built* Instead of Explained](ask-claude-code-instead-of-me-get-it-built-not-explained.md)** - Start here if you're new to working with an AI coding agent. A small, real question ("how did you get bold text into that Slack message?") used to teach the move that matters: asking a person gets you a description of a solution, asking Claude Code gets you the solution, running. Walks the four escalating prompts from help-center answer to commissioned tool, the three approaches that failed on the way to the right one, the five habits underneath, and - as the punchline - the raw, rambling, dictated prompt that produced the document itself.
@@ -26,9 +28,9 @@ Plug-and-play skills for Claude Code. Copy to `~/.claude/skills/` and use immedi
 
 - **[Deep Research Prompt Engineering](deep-research-prompt-engineering.md)** - Research-backed framework for transforming casual questions into structured Deep Research prompts, with building blocks ranked by evidence strength, two output branches (reference doc vs. domain learning), and before/after examples.
 
-- **[Anatomy of a Context System: The Indexing Layer](context-system-indexing-retrieval-architecture.md)** - How a working context system indexes itself so an agent can find the right document out of hundreds while spending almost no budget. Names every constituent element (codes, filenames-as-records, taxonomy, front-loaded metadata, maturity, manifest, topic router, people directory) and walks the cheapest-first retrieval cascade that ties them together. The umbrella over the two documents below.
+- **[Anatomy of a Context System: The Indexing Layer](context-system-indexing-retrieval-architecture.md)** - How a working context system indexes itself so an agent can find the right document out of hundreds while spending almost no budget. Names every constituent element (codes, filenames-as-records, taxonomy, front-loaded metadata, maturity, manifest, topic router, people directory, session handovers) and walks the cheapest-first retrieval cascade that ties them together. The umbrella over the two documents below.
 
-- **[AI Context Document Standards](ai-context-document-standards.md)** - Complete framework for structuring AI context documents - covers taxonomy (9 categories), maturity levels, naming conventions, retrieval optimization, and cross-referencing. The system that makes Claude Code's knowledge base work.
+- **[AI Context Document Standards](ai-context-document-standards.md)** - Complete framework for structuring AI context documents - covers what a document holds, taxonomy (9 categories), maturity levels, naming conventions, retrieval optimization, and cross-referencing. The system that makes Claude Code's knowledge base work.
 
 - **[Filename Generation: Keyword Extraction and Retrieval Optimization](filename-generation-keyword-extraction-retrieval-optimization.md)** - Methodology for converting content into retrieval-optimized filenames through keyword extraction and query anticipation. Applicable to any file type in RAG-based systems.
 

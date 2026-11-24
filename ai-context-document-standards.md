@@ -15,9 +15,9 @@
 | **Scope** | Document architecture, taxonomy, maturity levels, content structure, filename generation, keyword extraction, retrieval optimization, cross-referencing |
 | **Not In Scope** | Specific technical content (CRMs, enrichment tools, etc.), prompt engineering for conversations, fine-tuning, platform-specific RAG mechanics |
 | **Dependencies** | [Filename Generation: Keyword Extraction and Retrieval Optimization](filename-generation-keyword-extraction-retrieval-optimization.md) - Foundational filename principles this document builds on (also published in this repo) |
-| **Keywords** | markdown, documentation, RAG, retrieval, Claude Code, Claude Projects, knowledge base, taxonomy, document structure, metadata tables, maturity, filename generation, keyword extraction, query anticipation, naming conventions |
+| **Keywords** | markdown, documentation, RAG, retrieval, Claude Code, Claude Projects, knowledge base, taxonomy, document structure, metadata tables, maturity, filename generation, keyword extraction, query anticipation, naming conventions, live source, snapshot, versioned sections |
 | **Maturity** | Stable |
-| **Last Reviewed** | 2026-02-26 |
+| **Last Reviewed** | 2026-11-24 |
 
 ---
 
@@ -60,9 +60,46 @@ Most documentation fails at discovery. Clear naming, explicit scope boundaries, 
 
 ---
 
+## What a Document Holds: Taste and Learnings, With Vendor Data Pulled Live
+
+A context document holds the layer that sits on top of what vendors publish: your taste, your decisions and the reasons for them, your methods and standards, and what real builds taught you. What a vendor publishes and changes (prices, limits, model lineups, how the product behaves) stays on the vendor's own pages and is pulled live when a task needs it. The same rule applies to `CLAUDE.md` files.
+
+**Why:** a value copied into a document goes stale while the document keeps its maturity label. A Stable or Canonical document outranks general knowledge, so the AI treats its stale values as definitive.
+
+### Never stored in a document
+
+- Prices and costs
+- Plan tiers, quotas and limits
+- Model lineups, rankings, benchmark scores, context-window sizes
+- Vendor statistics and case-study figures
+- Restatements of vendor documentation
+
+### Write the live source in place of the value
+
+Name where the current value lives: the vendor page URL, a documentation lookup tool, or the CLI command that reads it. Example: "current model prices: the vendor's pricing page, looked up at the time of use" in place of a price table.
+
+### What belongs in a document
+
+- **Taste and decisions:** which option you prefer and why, in category language ("the cheapest model that passes the test rows")
+- **Methods and standards:** how to choose, test, build and review
+- **Dated operator learnings:** what a tool did in a named build, with the date, to be re-verified before relying on it
+- **Build records:** which model, prompt or setting a specific build was configured and tested with
+- **Dated payload snapshots:** the JSON shape a vendor returned on a named date, opening with "Snapshot as of <date>. Current shape: <live source>."
+- **Gaps in vendor docs:** which pages disagree, and on what
+
+### Exception: research snapshots
+
+A document whose subject is research about a market or a practice may hold figures. It states a snapshot date and a refresh-by date, and every figure carries its source, data period and definition. After the refresh-by date, figures are quoted only as dated history. Such a document never reaches Canonical.
+
+### The test
+
+For each sentence that states a fact about a third-party product, ask: would this sentence be wrong if the vendor changed its page? If yes, replace it with the live source. If it records what happened in a dated build, keep it with its date.
+
+---
+
 ## Document Maturity Framework
 
-Documents progress through four maturity levels that signal reliability to AI systems.
+Documents progress through five maturity levels that signal reliability to AI systems.
 
 **Source of truth:** The document itself. Each document's metadata table contains its `Maturity` and `Last Reviewed` fields. A manifest (index file) reflects these values for quick lookup but is not authoritative - always trust the document.
 
@@ -74,6 +111,7 @@ Documents progress through four maturity levels that signal reliability to AI sy
 | **Working** | Substantive thinking complete, not yet validated in practice | Use as current best thinking, but don't treat as authoritative. Open to contradiction from other sources. |
 | **Stable** | Validated through use, still being refined | Use confidently. Prefer over general knowledge. Flag significant contradictions rather than silently overriding. |
 | **Canonical** | Definitive position, locked in | Treat as authoritative. Override general knowledge. Only superseded by explicit revision or newer canonical doc. |
+| **Obsolete** | Superseded or no longer relevant | Do not use. Retained for historical reference. If referenced, note it is obsolete and point to any replacement. |
 
 ### Promotion Rules
 
@@ -81,6 +119,7 @@ Documents progress through four maturity levels that signal reliability to AI sy
 - **Working to Stable:** When validated through real-world use and refined based on feedback
 - **Stable to Canonical:** Only by explicit decision ("make this canonical") - indicates locked-in, authoritative status
 - **Any to Draft:** When major revision is underway
+- **Any to Obsolete:** When a newer document fully supersedes it or it is no longer relevant. Name the replacement in the document.
 
 ### Staleness
 
@@ -102,20 +141,18 @@ All documents fall into one of nine functional categories. Each corresponds to a
 
 ### REFERENCE - Platform Documentation
 
-**Purpose:** Explain what a tool, platform, or system can do. Lookup documents for "how does X work" questions.
+**Purpose:** How you work with a tool, platform, or system: where its vendor documents it, plus the recipes, patterns and operator knowledge from your own builds. How the tool itself behaves, what it costs and what its limits are stay in the vendor's docs and are looked up at task time.
 
 **Retrieval triggers:**
-- "What's the formula syntax for..."
-- "How does X handle..."
-- "What are the rate limits?"
-- "What fields does enrichment return?"
+- "What's our formula for cleaning a URL?"
+- "Where do I check how X handles Y?"
+- "How did we format this last time?"
 
 **Structure:**
-- Platform/tool overview (what it is, core value proposition)
-- Key capabilities (organized by function, not by UI layout)
-- Limitations and boundaries (what it cannot do)
-- Integration points (how it connects to other systems)
-- Common patterns and anti-patterns
+- Where the vendor documents the tool
+- Recipes and patterns from real builds, organized by task
+- Traps and anti-patterns seen in real builds, dated
+- Known gaps and conflicts in the vendor's docs
 
 ---
 
@@ -242,7 +279,7 @@ All documents fall into one of nine functional categories. Each corresponds to a
 
 ### CHEATSHEET - Tip Collections
 
-**Purpose:** Collections of discrete, actionable tips, shortcuts, and commands for tools and workflows. Unlike REFERENCE documents (which are comprehensive, holistically authored platform documentation), CHEATSHEET documents grow incrementally through a capture process - tips are added one at a time and normalized into a uniform format.
+**Purpose:** Collections of discrete, actionable tips, shortcuts, and commands for tools and workflows. Unlike REFERENCE documents (which are authored as a whole and organized by task), CHEATSHEET documents grow incrementally through a capture process - tips are added one at a time and normalized into a uniform format.
 
 **Retrieval triggers:**
 - "What are the shortcuts for X?"
@@ -258,9 +295,9 @@ All documents fall into one of nine functional categories. Each corresponds to a
 - New entries appended to the appropriate section
 
 **What distinguishes this from REFERENCE:**
-- REFERENCE documents are comprehensive, holistically authored platform documentation
+- REFERENCE documents hold vendor sources plus recipes and traps from your own builds, organized by task
 - CHEATSHEET documents are collections of discrete tips that grow incrementally through capture
-- REFERENCE answers "How does X work?" - CHEATSHEET answers "What are the quick tips for X?"
+- REFERENCE answers "How do we do X in this tool?" - CHEATSHEET answers "What are the quick tips for X?"
 
 ---
 
@@ -300,7 +337,7 @@ The knowledge library can be organized into distinct layers, each serving a diff
 - Universal across clients/projects
 - Defines how work is done (methodologies, procedures)
 - Codifies taste and constraints (standards)
-- Platform and tool knowledge (references)
+- Tool recipes and operator learnings (references)
 - Buyer/stakeholder intelligence (personas)
 
 ### Domain Expertise
@@ -420,7 +457,7 @@ The document code (e.g., `doc-26`) comes first for index sorting and quick looku
 
 | Keyword-Rich (Good) | Too Sparse (Bad) | Why |
 |---------------------|------------------|-----|
-| `doc-21_REFERENCE_clay-platform-deep-dive.md` | `doc-21_REFERENCE_clay.md` | Captures searchable capabilities |
+| `doc-20_REFERENCE_clay-formula-cookbook-url-cleaning-text-patterns.md` | `doc-20_REFERENCE_clay.md` | Captures what someone would search for |
 | `doc-15_SCHEMA_clay-enriched-company-structure.md` | `doc-15_SCHEMA_company.md` | Specifies entity type and data categories |
 | `doc-14_PERSONA_cro-buyer-primer.md` | `doc-14_PERSONA_cro.md` | Includes concerns that trigger retrieval |
 | `doc-13_FRAMEWORK_phone-number-scoring-guide.md` | `doc-13_FRAMEWORK_phone.md` | Adds key concepts for better matching |
@@ -482,11 +519,14 @@ Every document should follow this structure, adapted to its category.
 | **Not In Scope** | Explicit exclusions - what this document does NOT cover |
 | **Dependencies** | Other documents that should be read alongside this one |
 | **Keywords** | Synonyms, related terms, alternative phrasings that should trigger retrieval |
-| **Maturity** | Draft / Working / Stable / Canonical |
+| **Maturity** | Draft / Working / Stable / Canonical / Obsolete |
 | **Last Reviewed** | YYYY-MM-DD |
+| **Source** | Where this came from: the session, call, research run or URL. Several allowed. |
 
 ---
 ```
+
+**Source is required.** It lets you, or the AI, return to the conversation a rule came from. Strip it when you publish a document, as I do here.
 
 ### Body Structure
 
@@ -529,6 +569,21 @@ Documents that evolve over time should include a changelog section at the end. T
 - Use H3 (`###`) for subsections
 - Keep headers descriptive and searchable - "Phone Number Quality Tiers" not "Tiers"
 - Front-load important words - "Salesforce Field Architecture" not "How to Structure Fields in Salesforce"
+
+---
+
+## Versioned Section Headers
+
+Some documents hold text that gets copied into another tool, for example an agent prompt. Give such a section a version and date in its header: `## System Prompt (v4 - 2026-04-24)`. The header is a claim about the text below it, because it is what you read while copying.
+
+**When anything under a versioned header changes, in this order:**
+
+1. Wrap the existing version, header and body, in a collapsed `<details>` block.
+2. Write the new version above it, with a bumped version number and today's date.
+3. Add a short **What changed from vN** note under the new header.
+4. Update `Last Reviewed`, `Source` and the changelog.
+
+Even a one-word edit follows these steps. It prevents a header that says v4 above text that has already been patched, with no copy of v4 left.
 
 ---
 
@@ -579,67 +634,43 @@ Claude Code reads files directly rather than using RAG chunking. This changes th
 
 ### Directory Structure
 
+Use a flat folder. The category lives in the filename, so one pattern (`knowledge/*SCHEMA*.md`) finds every document of a kind. Subfolders separate layers only.
+
 ```
 knowledge/
-├── CLAUDE.md                    # Root index (auto-loaded)
-├── MANIFEST.md                  # Document inventory with metadata
-├── technical/
-│   ├── CLAUDE.md                # Directory index
-│   └── [technical docs]
-├── schemas/
-│   ├── CLAUDE.md
-│   └── [schema docs]
-├── methodology/
-│   ├── CLAUDE.md
-│   └── [methodology docs]
-├── personas/
-│   ├── CLAUDE.md
-│   └── [persona docs]
-└── domain/
-    ├── MANIFEST.md              # Domain-specific index
-    └── [domain docs]
+├── MANIFEST.md                 # Index of record, read as a fallback
+├── TOPIC-ROUTER.md             # How people talk -> filename keywords
+├── doc-4_STANDARD_context-document-standards.md
+├── doc-12_PROCEDURE_icp-persona-process-discovery.md
+├── doc-14_PERSONA_cro-buyer-primer.md
+├── [...]
+├── domain/                     # Domain expertise layer, own manifest
+└── custom-apps/                # Custom applications layer, own manifest
 ```
 
-### CLAUDE.md Index Files
+### Retrieval: Cheapest Step First
 
-The root `CLAUDE.md` serves as a routing table. Example:
+The root `CLAUDE.md` tells the AI in which order to look:
 
-```markdown
-# Knowledge Library
+| Step | Mechanism | Cost |
+|------|-----------|------|
+| 1 | People directory: resolve a name | Near-free |
+| 2 | Trigger phrase or skill match | Near-free |
+| 3 | Filename search (`knowledge/*keyword*.md`) | Near-free |
+| 4 | Topic router, then filename search again | Low |
+| 5 | First 20 lines of candidate files | Low |
+| 6 | Full manifest | High, fallback |
+| 7 | Search inside file contents | Last resort |
 
-This directory contains reference documentation.
+The full description is in [Anatomy of a Context System](context-system-indexing-retrieval-architecture.md).
 
-## Routing Guide
+### Always-Consult Documents
 
-| Task Type | Read These Documents |
-|-----------|---------------------|
-| Platform workflows | `technical/platform-*.md` + `schemas/` |
-| CRM integration | `technical/{crm}-*.md` + `methodology/best-practices.md` |
-| Proposals/client comms | `context/service-offering.md` + relevant `personas/` doc |
-| Lead scoring | `methodology/lead-scoring-fundamentals.md` |
+A few documents apply to most tasks of a kind. Name them in the root `CLAUDE.md`, next to the workflow they govern ("for agent prompts, follow doc-19"), and leave the content in the document.
 
-## Document Inventory
+### Skills Point to Documents
 
-### technical/
-- `platform-deep-dive.md` - Capabilities, formulas, integrations
-- [...]
-
-### schemas/
-- `json-prompting-guide.md` - AI agent prompt building guide
-- [...]
-```
-
-### Always-Read Documents
-
-Some documents contain cross-cutting concerns that apply to most tasks. Mark these in the root `CLAUDE.md`:
-
-```markdown
-## Always Consult
-
-These documents apply to most tasks:
-- `schemas/json-prompting-guide.md` - When building AI agent prompts
-- `context/service-offering.md` - When doing client-facing work
-```
+A skill says what to do and in which order. The document holds how. Several skills can then follow the same standard, and the standard changes in one place.
 
 ---
 
@@ -694,8 +725,9 @@ Before finalizing any context document:
 
 ### Content Checklist
 
-- [ ] Metadata table is complete (Purpose, Trigger, Scope, Not In Scope, Dependencies, Keywords, Maturity, Last Reviewed)
-- [ ] Maturity level is appropriate (Draft/Working/Stable/Canonical)
+- [ ] Metadata table is complete (Purpose, Trigger, Scope, Not In Scope, Dependencies, Keywords, Maturity, Last Reviewed, Source)
+- [ ] No volatile vendor data; each value is replaced by its live source
+- [ ] Maturity level is appropriate (Draft/Working/Stable/Canonical/Obsolete)
 - [ ] First 200 words contain all primary search terms
 - [ ] Negative scope is explicitly stated
 - [ ] Sections are reasonably self-contained
@@ -707,7 +739,9 @@ Before finalizing any context document:
 
 ## Related Documents
 
-- Filename Generation: Keyword Extraction and Retrieval Optimization - Foundational filename principles this document applies
+- [Filename Generation: Keyword Extraction and Retrieval Optimization](filename-generation-keyword-extraction-retrieval-optimization.md) - Foundational filename principles this document applies
+- [Anatomy of a Context System](context-system-indexing-retrieval-architecture.md) - How documents built this way are found
+- [Three Foundations of a Context OS](context-os-three-foundations.md) - Where to start
 - Call transcript and meeting note naming conventions - Applies filename principles to call transcripts
 
 ---
@@ -716,6 +750,7 @@ Before finalizing any context document:
 
 | Date | Change |
 |------|--------|
+| 2026-11-24 | Brought up to date with the version in daily use: what a document holds (vendor data pulled live), Obsolete maturity level, Source field, REFERENCE category rewritten, versioned section headers, flat folder and retrieval order |
 | 2026-03-11 | Renamed from "AI Knowledge Document Standards" to "AI Context Document Standards" for public clarity |
 | 2026-03-11 | Added Changelog Convention section with format rules and guidance; added this changelog |
 | 2026-03-11 | Initial public version - combined document standards and filename generation into a single self-contained resource |

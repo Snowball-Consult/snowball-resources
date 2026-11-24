@@ -120,9 +120,13 @@ Maps to:    employment, in-seat, moved-on, contact-data-pipeline
 
 It is a small, cheap-to-load translation table from how people talk to how files are named. When a glob on the literal request words returns nothing, the router translates the intent into the right keywords and the glob is retried.
 
-### 9. The people directory: instant entity resolution
+### 9. The people directory: entity resolution
 
-A tiny table mapping every named person to their organization and role, loaded on **every** session because it is small and constantly useful. When a request names a person, the agent resolves who they are and which engagement they belong to instantly, without any document lookup at all. This is the cheapest retrieval step in the system, which is why it runs first.
+A small table mapping every named person to their organization and role. A one-line pointer to it is in context on every session, and the table is read when a name needs resolving. When a request names a person, the agent learns who they are and which engagement they belong to before it looks for any document.
+
+### 10. Session handovers: what was worked on and decided
+
+The library holds what you know. Handovers hold what you did: one file per topic with the goal, the decisions and their reasons, what is open and how to pick it up. They live in their own folder, and the filename is the index, so the same keyword search finds them. When a request returns to an earlier topic ("where were we on X"), the agent looks there first. The [`/exit-wrap` skill](skills/quality-of-life/exit-wrap/) writes them.
 
 ---
 
@@ -133,7 +137,7 @@ The elements above are inert without the algorithm that runs against them. This 
 Retrieval is a **tiered cascade**. Each step is more expensive than the last in context budget, so the agent stops at the first step that answers the request:
 
 ```
-1. People directory        already in memory      ~free
+1. People directory        pointer in memory      near-free
 2. Trigger phrases / skills direct workflow match  ~free
 3. Filename glob           match request keywords  near-free
 4. Topic router            translate, then glob    cheap
@@ -144,8 +148,8 @@ Retrieval is a **tiered cascade**. Each step is more expensive than the last in 
 
 The logic:
 
-- **Steps 1-2** cost nothing because that context is already loaded or is a direct trigger match. Most person-references and named-workflow requests resolve here.
-- **Step 3** is the workhorse. Because filenames are engineered as keyword records, a glob on the request's nouns usually surfaces the right candidate immediately.
+- **Steps 1-2** cost almost nothing: a short table read or a direct trigger match. Most person-references and named-workflow requests resolve here.
+- **Step 3** is the workhorse. Because filenames are engineered as keyword records, a glob on the request's nouns usually surfaces the right candidate immediately. For a return to an earlier topic, the same search runs on the handover folder.
 - **Step 4** catches the cases where casual phrasing missed the filename keywords - translate through the router, glob again.
 - **Step 5** confirms a candidate cheaply by reading only its metadata header before committing to the full document.
 - **Steps 6-7** are the safety net. They always work, but they are expensive, so they run only when everything above has failed.
@@ -162,7 +166,7 @@ A few principles fall out of the structure:
 - **The cheap path is the common path.** The system is tuned so the overwhelming majority of requests resolve in the first three steps. Expensive lookups exist, but they are the exception.
 - **Trust is explicit, not assumed.** Maturity and staleness signals stop the agent from treating a draft as gospel or citing year-old material as current.
 - **One fact per file.** Keeps documents findable, editable, and cross-referenceable without collateral damage.
-- **The index is maintained as a first-class artifact.** When a document is added, renamed, or re-graded, the manifest, the router, and any cross-references are updated in the same pass. An index that drifts out of sync with the corpus quietly rots, and a rotted index is worse than none, because it is trusted.
+- **The index is maintained as a first-class artifact.** When a document is added, renamed, or re-graded, the manifest, the router, and any cross-references are updated in the same pass. An index that drifts out of sync with the corpus quietly rots, and a rotted index is worse than none, because it is trusted. I run a small script at session start and before commits that checks for this: for example documents missing from the manifest, or a maturity level that differs between manifest and document.
 
 ---
 
