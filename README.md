@@ -12,6 +12,8 @@ Plug-and-play skills for Claude Code. Copy to `~/.claude/skills/` and use immedi
 
 - **[ASCII Block Art](skills/ascii/)** - Render any word or phrase as large, bold ASCII block art, auto-fitted to terminal width. Supports A-Z, 0-9, punctuation, emoji, word-wrapping. Install and use with `/ascii hello world`.
 
+- **[Three Quality-of-Life Skills](skills/quality-of-life/)** - `/catch-me-up` (what is this session about?), `/plan-mode-questions` (what do I need to decide?) and `/exit-wrap` (can I close this window?). Written so you can point your agent at the folder: it explains each skill, then installs it, adapts it or builds your own version.
+
 - **[Quiz Me: Q&A Learning Log](skills/qa-log/)** - Capture-first spaced-repetition learning loop for Claude Code. `/learned` turns any good answer into a recall card, `/quiz` reviews due cards with free recall and semantic grading, and a session-start hook reminds you when cards are due. SM-2-lite scheduling, plain markdown cards, standard library only.
 
 ## Contents
